@@ -38,17 +38,9 @@ public class Field
     {
         List <Sector> possibleSectors = new ArrayList<Sector>();
 
-        for (Sector[] line : this.sectors) {
-            for (Sector sector : line) {
-                possibleSectors.add(sector);
-            }
-        }
+        for (Sector[] line : this.sectors) for (Sector sector : line) possibleSectors.add(sector);
 
-        for (Ship ship : ships) {
-            for (Sector sector : ship.getOccupationZone()) {
-                possibleSectors.remove(sector);
-            }
-        }
+        for (Ship ship : ships) for (Sector sector : ship.getOccupationZone()) possibleSectors.remove(sector);
 
         return possibleSectors;
     }

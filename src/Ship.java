@@ -45,6 +45,11 @@ public class Ship
         return this.state;
     }
 
+    public void setDeckTo(Deck deck)
+    {
+        decks.add(deck);
+    }
+
     /**
      * Получить территорию занимаемую кораблем и соседствующею с ней.
      * @return - массив секторов входяхив в эту территорию
