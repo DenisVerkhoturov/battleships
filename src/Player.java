@@ -1,4 +1,4 @@
-import java.util.List;
+import java.util.*;
 
 /**
  * Игрок
@@ -7,7 +7,7 @@ public class Player
 {
     private String name;
     private Field field;
-    private List <Ship> ships;
+    private Field opponent;
     private List <Shot> history;
 
     public Player(String name)
@@ -16,47 +16,63 @@ public class Player
         this.init();
     }
 
-    public Shot shoot(Sector sector)
+    /**
+     * Разместить корабли.
+     */
+    public void placeShips()
     {
-        return new Shot(sector);
     }
 
+    /**
+     * Совершить выстрел. И сохранить его в истории выстрелов.
+     * @param sector - сектор, по которому будет произведен выстрел
+     * @return - объек выстрела
+     */
+    public Shot shoot(Sector sector)
+    {
+        Shot shot = new Shot(sector);
+        this.history.add(shot);
+        return shot;
+    }
+
+    /**
+     * @param shot - выстрел
+     * @return - если сектор, по которому произвели выстрел занят целой палубой корабля, возвращает true
+     */
     public boolean getHit(Shot shot)
     {
-        for (Ship ship : this.ships) {
+        for (Ship ship : this.field.getShips()) {
             for (Deck deck : ship.getDecks()) {
-                if (deck.getSector() == shot.getSector())
+                if (deck.getSector().isSameAs(shot.getSector()) && deck.getState() == Deck.State.WHOLE) {
+                    deck.getHit();
                     return true;
+                }
             }
         }
 
         return false;
     }
 
-    private void init()
-    {
-        ships.add(new Ship(Ship.Type.SINGLE_DECK));
-        ships.add(new Ship(Ship.Type.SINGLE_DECK));
-        ships.add(new Ship(Ship.Type.SINGLE_DECK));
-        ships.add(new Ship(Ship.Type.SINGLE_DECK));
-
-        ships.add(new Ship(Ship.Type.DOUBLE_DECKER));
-        ships.add(new Ship(Ship.Type.DOUBLE_DECKER));
-        ships.add(new Ship(Ship.Type.DOUBLE_DECKER));
-
-        ships.add(new Ship(Ship.Type.THREE_DECKER));
-        ships.add(new Ship(Ship.Type.THREE_DECKER));
-
-        ships.add(new Ship(Ship.Type.FOUR_DECKER));
-    }
-
+    /**
+     * Проверяет, остались ли у игрока живые корабли.
+     * @return - если такой корабль найден, возвращает false
+     */
     public boolean isDefeated()
     {
-        for (Ship ship : this.ships) {
+        for (Ship ship : this.field.getShips()) {
             if (ship.getState() == Ship.State.WHOLE)
                 return false;
         }
 
         return true;
+    }
+
+    /**
+     * Инициализация стартовых условий.
+     */
+    private void init()
+    {
+        this.history = new ArrayList<Shot>();
+        this.opponent = new Field();
     }
 }

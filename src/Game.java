@@ -20,7 +20,11 @@ public class Game
             String name = reader.readLine();
             player = new Player(name);
 
+            /**
+             * Пока игрок или компьютер не побежден будем реализовывать ход по очереди
+             */
             while (player.isDefeated() || npc.isDefeated()) {
+
                 /**
                  * Блок действий игрока
                  */
@@ -37,8 +41,8 @@ public class Game
                 {
                     Sector sector = new Sector(1, 1);
 
-                    Shot shot = player.shoot(sector);
-                    shot.setStatus(npc.getHit(shot));
+                    Shot shot = npc.shoot(sector);
+                    shot.setStatus(player.getHit(shot));
                 }
             }
 

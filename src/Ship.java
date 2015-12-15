@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,16 +14,24 @@ public class Ship
     {
         this.type = type;
         this.state = State.WHOLE;
+    }
 
-        switch (type) {
+    /**
+     * @return - соответствует ли количество палуб типу корабля
+     */
+    public boolean isReady()
+    {
+        switch (this.type) {
             case FOUR_DECKER:
-                decks.add(new Deck());
+                return decks.size() == 4;
             case THREE_DECKER:
-                decks.add(new Deck());
+                return decks.size() == 3;
             case DOUBLE_DECKER:
-                decks.add(new Deck());
+                return decks.size() == 2;
             case SINGLE_DECK:
-                decks.add(new Deck());
+                return decks.size() == 1;
+            default:
+                return false;
         }
     }
 
@@ -34,6 +43,17 @@ public class Ship
     public State getState()
     {
         return this.state;
+    }
+
+    /**
+     * Получить территорию занимаемую кораблем и соседствующею с ней.
+     * @return - массив секторов входяхив в эту территорию
+     */
+    public List <Sector> getOccupationZone()
+    {
+        List <Sector> occupationZone = new ArrayList<Sector>();
+        // TODO заполнение массива секторами, на которых корабль расположен, и с которыми он граничит
+        return occupationZone;
     }
 
     /**

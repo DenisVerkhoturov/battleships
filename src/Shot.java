@@ -11,11 +11,17 @@ public class Shot
         this.sector = sector;
     }
 
+    /**
+     * @param status - результат попадания
+     */
     public void setStatus(Boolean status)
     {
         this.status = status;
     }
 
+    /**
+     * @return - сектор, по которому был произведен выстрел
+     */
     public Sector getSector()
     {
         return this.sector;

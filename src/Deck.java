@@ -6,18 +6,25 @@ public class Deck
     private Sector sector;
     private State state;
 
-    public Deck()
-    {}
-
     public Deck(Sector sector)
     {
         this.sector = sector;
         this.state = State.WHOLE;
     }
 
+    public State getState()
+    {
+        return this.state;
+    }
+
     public Sector getSector()
     {
         return this.sector;
+    }
+
+    public void getHit()
+    {
+        this.state = State.BROKEN;
     }
 
     /**
