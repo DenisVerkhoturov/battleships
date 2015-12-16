@@ -12,15 +12,6 @@ public class Sector
         this.y = y;
     }
 
-    /**
-     * @param sector - сектор, с которым необходимо произвести сравнени
-     * @return - если координаты точки одинаковые, то считаем, что редь идет об одном и том же секторе
-     */
-    public boolean isSameAs(Sector sector)
-    {
-        return (this.x == sector.getX() && this.y == sector.getY());
-    }
-
     public int getX()
     {
         return this.x;
@@ -29,5 +20,14 @@ public class Sector
     public int getY()
     {
         return this.y;
+    }
+
+    /**
+     * @param sector - сектор, с которым необходимо произвести сравнени
+     * @return - если координаты точки одинаковые, то считаем, что редь идет об одном и том же секторе
+     */
+    public boolean isSameAs(Sector sector)
+    {
+        return (this.x == sector.getX() && this.y == sector.getY());
     }
 }

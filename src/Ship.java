@@ -16,25 +16,6 @@ public class Ship
         this.state = State.WHOLE;
     }
 
-    /**
-     * @return - соответствует ли количество палуб типу корабля
-     */
-    public boolean isReady()
-    {
-        switch (this.type) {
-            case FOUR_DECKER:
-                return decks.size() == 4;
-            case THREE_DECKER:
-                return decks.size() == 3;
-            case DOUBLE_DECKER:
-                return decks.size() == 2;
-            case SINGLE_DECK:
-                return decks.size() == 1;
-            default:
-                return false;
-        }
-    }
-
     public List <Deck> getDecks()
     {
         return this.decks;
@@ -43,6 +24,11 @@ public class Ship
     public State getState()
     {
         return this.state;
+    }
+
+    public Type getType()
+    {
+        return this.type;
     }
 
     public void setDeckTo(Deck deck)
@@ -57,8 +43,31 @@ public class Ship
     public List <Sector> getOccupationZone()
     {
         List <Sector> occupationZone = new ArrayList<Sector>();
-        // TODO заполнение массива секторами, на которых корабль расположен, и с которыми он граничит
+        // TODO найти более элегантное решение задачи
+        for (Deck deck : decks) {
+            Sector deckSector = deck.getSector();
+            occupationZone.add(deckSector);
+
+            if (deckSector.getX() != 0) occupationZone.add(new Sector(deckSector.getX() - 1, deckSector.getY()));
+            if (deckSector.getX() != 9) occupationZone.add(new Sector(deckSector.getX() + 1, deckSector.getY()));
+
+            if (deckSector.getY() != 0) occupationZone.add(new Sector(deckSector.getX(), deckSector.getY() - 1));
+            if (deckSector.getY() != 9) occupationZone.add(new Sector(deckSector.getX(), deckSector.getY() + 1));
+
+            if (deckSector.getX() != 0 && deckSector.getY() != 0) occupationZone.add(new Sector(deckSector.getX() - 1, deckSector.getY() - 1));
+            if (deckSector.getX() != 0 && deckSector.getY() != 0) occupationZone.add(new Sector(deckSector.getX() - 1, deckSector.getY() - 1));
+            if (deckSector.getX() != 9 && deckSector.getY() != 9) occupationZone.add(new Sector(deckSector.getX() + 1, deckSector.getY() + 1));
+            if (deckSector.getX() != 9 && deckSector.getY() != 9) occupationZone.add(new Sector(deckSector.getX() + 1, deckSector.getY() + 1));
+        }
         return occupationZone;
+    }
+
+    /**
+     * @return - соответствует ли количество палуб типу корабля
+     */
+    public boolean isReady()
+    {
+        return this.decks.size() == this.type.length;
     }
 
     /**
@@ -75,14 +84,16 @@ public class Ship
 
     /**
      * Тип коробля
-     *
-     * SINGLE_DECK - однопалубный
-     * DOUBLE_DECKER - двухпалубный
-     * THREE_DECKER - трехпалубный
-     * FOUR_DECKER - четырехпалубный
      */
     enum Type
     {
-        SINGLE_DECK, DOUBLE_DECKER, THREE_DECKER, FOUR_DECKER
+        SINGLE_DECK(1), DOUBLE_DECKER(2), THREE_DECKER(3), FOUR_DECKER(4);
+
+        private int length;
+
+        Type(int length)
+        {
+            this.length = length;
+        }
     }
 }

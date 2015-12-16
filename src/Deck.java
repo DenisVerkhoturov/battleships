@@ -12,17 +12,17 @@ public class Deck
         this.state = State.WHOLE;
     }
 
-    public State getState()
-    {
-        return this.state;
-    }
-
     public Sector getSector()
     {
         return this.sector;
     }
 
-    public void getHit()
+    public State getState()
+    {
+        return this.state;
+    }
+
+    public void attacked()
     {
         this.state = State.BROKEN;
     }

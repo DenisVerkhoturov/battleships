@@ -32,7 +32,7 @@ public class Game
                     Sector sector = new Sector(1, 1);
 
                     Shot shot = player.shoot(sector);
-                    shot.setStatus(npc.getHit(shot));
+                    shot.setStatus(npc.attacked(shot));
                 }
 
                 /**
@@ -42,7 +42,7 @@ public class Game
                     Sector sector = new Sector(1, 1);
 
                     Shot shot = npc.shoot(sector);
-                    shot.setStatus(player.getHit(shot));
+                    shot.setStatus(player.attacked(shot));
                 }
             }
 

@@ -17,6 +17,15 @@ public class Player
     }
 
     /**
+     * Инициализация стартовых условий.
+     */
+    private void init()
+    {
+        this.history = new ArrayList<Shot>();
+        this.opponent = new Field();
+    }
+
+    /**
      * Разместить корабли.
      */
     public void placeShips()
@@ -39,12 +48,12 @@ public class Player
      * @param shot - выстрел
      * @return - если сектор, по которому произвели выстрел занят целой палубой корабля, возвращает true
      */
-    public boolean getHit(Shot shot)
+    public boolean attacked(Shot shot)
     {
         for (Ship ship : this.field.getShips()) {
             for (Deck deck : ship.getDecks()) {
                 if (deck.getSector().isSameAs(shot.getSector()) && deck.getState() == Deck.State.WHOLE) {
-                    deck.getHit();
+                    deck.attacked();
                     return true;
                 }
             }
@@ -54,7 +63,7 @@ public class Player
     }
 
     /**
-     * Проверяет, остались ли у игрока живые корабли.
+     * Проверить, остались ли у игрока живые корабли.
      * @return - если такой корабль найден, возвращает false
      */
     public boolean isDefeated()
@@ -65,14 +74,5 @@ public class Player
         }
 
         return true;
-    }
-
-    /**
-     * Инициализация стартовых условий.
-     */
-    private void init()
-    {
-        this.history = new ArrayList<Shot>();
-        this.opponent = new Field();
     }
 }
