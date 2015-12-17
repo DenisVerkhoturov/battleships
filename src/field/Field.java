@@ -1,3 +1,7 @@
+package field;
+
+import ship.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -6,44 +10,17 @@ import java.util.List;
  */
 public class Field
 {
-    private Sector[][] sectors;
-    private List <Ship> ships;
+    private final Sector[][] sectors;
+    private final List <Ship> ships;
 
     public Field()
-    {
-        this.init();
-    }
-
-    /**
-     * Инициализация стартовых условий.
-     */
-    private void init()
     {
         this.ships = new ArrayList<Ship>();
         this.sectors = new Sector[10][10];
 
-        for (int y = 0; y < 10; y++) {
-            for (int x = 0; x < 10; x++) {
+        for (int y = 0; y < 10; y++)
+            for (int x = 0; x < 10; x++)
                 this.sectors[y][x] = new Sector(x, y);
-            }
-        }
-
-        /**
-         * Заполнение массива кораблями
-         */
-        this.ships.add(new Ship(Ship.Type.SINGLE_DECK));
-        this.ships.add(new Ship(Ship.Type.SINGLE_DECK));
-        this.ships.add(new Ship(Ship.Type.SINGLE_DECK));
-        this.ships.add(new Ship(Ship.Type.SINGLE_DECK));
-
-        this.ships.add(new Ship(Ship.Type.DOUBLE_DECKER));
-        this.ships.add(new Ship(Ship.Type.DOUBLE_DECKER));
-        this.ships.add(new Ship(Ship.Type.DOUBLE_DECKER));
-
-        this.ships.add(new Ship(Ship.Type.THREE_DECKER));
-        this.ships.add(new Ship(Ship.Type.THREE_DECKER));
-
-        this.ships.add(new Ship(Ship.Type.FOUR_DECKER));
     }
 
     public List <Ship> getShips()
@@ -70,28 +47,39 @@ public class Field
     /**
      * @return - массив секторов, доступных для позиционирования.
      */
-    public List <Sector> getPossibleSectors()
+    public Sector[] getPossibleSectors()
     {
         List <Sector> possibleSectors = new ArrayList<Sector>();
 
         for (Sector[] line : this.sectors) for (Sector sector : line) possibleSectors.add(sector);
 
-        for (Ship ship : ships) for (Sector sector : ship.getOccupationZone()) possibleSectors.remove(sector);
+        for (Ship ship : ships) for (Sector sector : ship.getOccupationArea()) possibleSectors.remove(sector);
 
         return possibleSectors;
     }
 
     /**
-     * Проверить хватат ли места вокруг указанного сектора для корабля указанного размера.
-     * @param type
-     * @param sector
-     * @return
+     * @param type - палубность коробля, для которого проверяем место
+     * @param sector - сектор, в окрестностях которого нас интересует свободное место
+     * @return - если корабль указанной палубности помещается вернет true
      */
-    private boolean canPlaceShipOfTypeToSector(Ship.Type type, Sector sector)
+    private boolean canPlaceShipOfTypeToSector(ship.Type type, Sector sector)
     {
-        sector.getX();
+        List <Sector> possibleSectors = this.getPossibleSectors();
+
+        if (this.sectors[sector.getY()][sector.getX()].isAvailable()) {
+            {
+                for (int x = 0; x < 10; x++) {
+                }
+            }
+        }
 
         return true;
+    }
+
+    public boolean isSectorEmpty(int x, int y)
+    {
+        return this.sectors[y][x].isAvailable();
     }
 
     /**

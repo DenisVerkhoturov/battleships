@@ -1,22 +1,35 @@
+package player;
+
+import field.Sector;
+
 /**
  * Выстрел
  */
 public class Shot
 {
-    private Sector sector;
+    private Sector target;
     private boolean status;
 
-    public Shot(Sector sector)
+    public Shot(Sector target)
     {
-        this.sector = sector;
+        this.target = target;
+        this.target.markAsShoot();
     }
 
     /**
      * @return - сектор, по которому был произведен выстрел
      */
-    public Sector getSector()
+    public Sector getTarget()
     {
-        return this.sector;
+        return this.target;
+    }
+
+    /**
+     * @return - результат попадания
+     */
+    public boolean getStatus()
+    {
+        return this.status;
     }
 
     /**

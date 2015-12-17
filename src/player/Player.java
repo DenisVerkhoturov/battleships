@@ -1,3 +1,8 @@
+package player;
+
+import field.Field;
+import ship.*;
+
 import java.util.*;
 
 /**
@@ -5,24 +10,18 @@ import java.util.*;
  */
 public class Player
 {
-    private String name;
+    private final String name;
     private Field field;
-    private Field opponent;
-    private List <Shot> history;
+    private final Field opponent;
+    private final List <Shot> history;
+    private final List <Ship> availableShips;
 
-    public Player(String name)
+    public Player(String name, List <Ship> availableShips)
     {
         this.name = name;
-        this.init();
-    }
-
-    /**
-     * Инициализация стартовых условий.
-     */
-    private void init()
-    {
         this.history = new ArrayList<Shot>();
         this.opponent = new Field();
+        this.availableShips = availableShips;
     }
 
     /**
@@ -37,7 +36,7 @@ public class Player
      * @param sector - сектор, по которому будет произведен выстрел
      * @return - объек выстрела
      */
-    public Shot shoot(Sector sector)
+    public Shot shoot(field.Sector sector)
     {
         Shot shot = new Shot(sector);
         this.history.add(shot);
@@ -52,7 +51,7 @@ public class Player
     {
         for (Ship ship : this.field.getShips()) {
             for (Deck deck : ship.getDecks()) {
-                if (deck.getSector().isSameAs(shot.getSector()) && deck.getState() == Deck.State.WHOLE) {
+                if (shot.getTarget().isSameAs(deck.getOccupiedSector())) {
                     deck.attacked();
                     return true;
                 }
@@ -63,13 +62,13 @@ public class Player
     }
 
     /**
-     * Проверить, остались ли у игрока живые корабли.
+     * Проверить, остались ли у игрока корабли на плаву.
      * @return - если такой корабль найден, возвращает false
      */
     public boolean isDefeated()
     {
         for (Ship ship : this.field.getShips()) {
-            if (ship.getState() == Ship.State.WHOLE)
+            if (ship.isAfloat())
                 return false;
         }
 
