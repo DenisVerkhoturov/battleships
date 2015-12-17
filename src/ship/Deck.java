@@ -30,8 +30,9 @@ public class Deck
         return this.intact;
     }
 
-    public void attacked()
+    public boolean attacked()
     {
         this.intact = false;
+        return true;
     }
 }

@@ -7,14 +7,16 @@ public class Sector
 {
     private final int x;
     private final int y;
-    private boolean available;
+    private boolean empty;
+    private boolean occupied;
     private boolean shoot;
 
     public Sector(int x, int y)
     {
         this.x = x;
         this.y = y;
-        this.available = true;
+        this.empty = true;
+        this.occupied = false;
         this.shoot = false;
     }
 
@@ -28,30 +30,32 @@ public class Sector
         return this.y;
     }
 
-    public boolean isAvailable()
-    {
-        return this.available;
-    }
-
-    public boolean isShoot()
-    {
-        return this.shoot;
-    }
-
     public void markAsShoot()
     {
         this.shoot = true;
     }
 
-    public boolean occupy()
+    public void occupy()
     {
-        if (this.isAvailable()) {
-            this.available = true;
-
-            return true;
+        if (this.empty) {
+            this.empty = false;
+            this.occupied = true;
         }
+    }
 
-        return false;
+    public boolean hasDeck()
+    {
+        return this.empty;
+    }
+
+    protected boolean isOccupied()
+    {
+        return this.occupied;
+    }
+
+    protected boolean isShoot()
+    {
+        return this.shoot;
     }
 
     /**

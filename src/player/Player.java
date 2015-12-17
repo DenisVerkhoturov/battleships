@@ -1,6 +1,6 @@
 package player;
 
-import field.Field;
+import field.*;
 import ship.*;
 
 import java.util.*;
@@ -14,14 +14,21 @@ public class Player
     private Field field;
     private final Field opponent;
     private final List <Shot> history;
-    private final List <Ship> availableShips;
+    private Sector pointer;
 
-    public Player(String name, List <Ship> availableShips)
+    public Player(String name)
     {
         this.name = name;
         this.history = new ArrayList<Shot>();
         this.opponent = new Field();
-        this.availableShips = availableShips;
+    }
+
+    public Sector getTargetOfPointer() {
+        return this.pointer;
+    }
+
+    public void setPointerTo(Sector pointer) {
+        this.pointer = pointer;
     }
 
     /**
@@ -33,32 +40,22 @@ public class Player
 
     /**
      * Совершить выстрел. И сохранить его в истории выстрелов.
-     * @param sector - сектор, по которому будет произведен выстрел
      * @return - объек выстрела
      */
-    public Shot shoot(field.Sector sector)
+    public Shot shoot()
     {
-        Shot shot = new Shot(sector);
+        Shot shot = new Shot(this.pointer);
         this.history.add(shot);
         return shot;
     }
 
     /**
      * @param shot - выстрел
-     * @return - если сектор, по которому произвели выстрел занят целой палубой корабля, возвращает true
+     * @return - перенаправляет проверку выстрела объекту класса Field текущего игрока
      */
-    public boolean attacked(Shot shot)
+    public boolean attacked(int x, int y)
     {
-        for (Ship ship : this.field.getShips()) {
-            for (Deck deck : ship.getDecks()) {
-                if (shot.getTarget().isSameAs(deck.getOccupiedSector())) {
-                    deck.attacked();
-                    return true;
-                }
-            }
-        }
-
-        return false;
+        return this.field.attacked(x, y);
     }
 
     /**

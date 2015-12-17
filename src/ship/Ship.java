@@ -9,35 +9,28 @@ import java.util.List;
 public class Ship
 {
     private final Type type;
-    private final boolean afloat;
-    private final List <Deck> decks;
+    private final ArrayList <Deck> decks;
 
-    public Ship(Type type)
+    public Ship(Layout layout)
     {
-        this.type = type;
-        this.afloat = true;
-        this.decks = new ArrayList <Deck>();
+        this.type = layout.getTypeOfShip();
+        this.decks = new ArrayList<Deck>();
+
+        for (field.Sector sector : layout.getSectors())
+            decks.add(new Deck(sector));
     }
 
-    public Type getType()
-    {
-        return this.type;
-    }
-
-    public List <Deck> getDecks()
-    {
-        return this.decks;
-    }
-
-    public void setDeckTo(field.Sector sector)
-    {
-        Deck deck = new Deck(sector);
-        decks.add(deck);
-    }
-
+    /**
+     * Проверить, на плаву ли еще корабль.
+     * @return - если хотя бы одна из палуб осталась не тронутой вернет true
+     */
     public boolean isAfloat()
     {
-        return this.afloat;
+        for (Deck deck : decks)
+            if (deck.isIntact())
+                return true;
+
+        return false;
     }
 
     /**
@@ -46,5 +39,18 @@ public class Ship
     public boolean isReady()
     {
         return this.decks.size() == this.type.getNumberOfDecks();
+    }
+
+    /**
+     * @param targetSector - сектор, по которому был произведен выстрел
+     * @return - результат попадания
+     */
+    public boolean attacked(field.Sector targetSector)
+    {
+        for (Deck deck : decks)
+            if (targetSector.isSameAs(deck.getOccupiedSector()))
+                return deck.attacked();
+
+        return false;
     }
 }

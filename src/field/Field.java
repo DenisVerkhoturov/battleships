@@ -33,27 +33,20 @@ public class Field
      */
     public void placeShip(Ship ship, Sector sector)
     {
-        while (!this.isReady()) {
-            if (this.canPlaceShipOfTypeToSector(ship.getType() , sector)) {
-                while (!ship.isReady()) {
-                    Deck deck = new Deck(sector);
-                    // TODO если позиционирование в этом секторе возможно добавляем палубу в корабль
-                    ship.setDeckTo(deck);
-                }
-            }
-        }
+        // TODO разместить корабль
     }
 
     /**
      * @return - массив секторов, доступных для позиционирования.
      */
-    public Sector[] getPossibleSectors()
+    public List <Sector> getPossibleSectors()
     {
         List <Sector> possibleSectors = new ArrayList<Sector>();
 
-        for (Sector[] line : this.sectors) for (Sector sector : line) possibleSectors.add(sector);
-
-        for (Ship ship : ships) for (Sector sector : ship.getOccupationArea()) possibleSectors.remove(sector);
+        for (Sector[] line : this.sectors)
+            for (Sector sector : line)
+                if (sector.isOccupied())
+                    possibleSectors.add(sector);
 
         return possibleSectors;
     }
@@ -67,7 +60,7 @@ public class Field
     {
         List <Sector> possibleSectors = this.getPossibleSectors();
 
-        if (this.sectors[sector.getY()][sector.getX()].isAvailable()) {
+        if (this.sectors[sector.getY()][sector.getX()].isOccupied()) {
             {
                 for (int x = 0; x < 10; x++) {
                 }
@@ -79,7 +72,7 @@ public class Field
 
     public boolean isSectorEmpty(int x, int y)
     {
-        return this.sectors[y][x].isAvailable();
+        return this.sectors[y][x].isOccupied();
     }
 
     /**
@@ -93,5 +86,18 @@ public class Field
         }
 
         return true;
+    }
+
+    public boolean attacked(int x, int y)
+    {
+        Sector targetSector = sectors[y][x];
+
+        targetSector.markAsShoot();
+
+        if (targetSector.hasDeck())
+            for (Ship ship : ships)
+                return ship.attacked(targetSector);
+
+        return false;
     }
 }
