@@ -1,9 +1,7 @@
 package player;
 
 import field.*;
-import ship.*;
-
-import java.util.*;
+import game.Round;
 
 /**
  * Игрок
@@ -11,16 +9,12 @@ import java.util.*;
 public class Player
 {
     private final String name;
-    private Field field;
-    private final Field opponent;
-    private final List <Shot> history;
     private Sector pointer;
+    private Round round;
 
     public Player(String name)
     {
         this.name = name;
-        this.history = new ArrayList<Shot>();
-        this.opponent = new Field();
     }
 
     public Sector getTargetOfPointer() {
@@ -45,30 +39,16 @@ public class Player
     public Shot shoot()
     {
         Shot shot = new Shot(this.pointer);
-        this.history.add(shot);
         return shot;
     }
 
     /**
-     * @param shot - выстрел
+     * @param x - горизонтальный индекс ячейки
+     * @param y - вертикальный индекс ячейки
      * @return - перенаправляет проверку выстрела объекту класса Field текущего игрока
      */
     public boolean attacked(int x, int y)
     {
-        return this.field.attacked(x, y);
-    }
-
-    /**
-     * Проверить, остались ли у игрока корабли на плаву.
-     * @return - если такой корабль найден, возвращает false
-     */
-    public boolean isDefeated()
-    {
-        for (Ship ship : this.field.getShips()) {
-            if (ship.isAfloat())
-                return false;
-        }
-
-        return true;
+        return this.round.getPlayerField().attacked(x, y);
     }
 }

@@ -13,13 +13,13 @@ public class Field
     private final Sector[][] sectors;
     private final List <Ship> ships;
 
-    public Field()
+    public Field(int width, int height)
     {
         this.ships = new ArrayList<Ship>();
-        this.sectors = new Sector[10][10];
+        this.sectors = new Sector[height][width];
 
-        for (int y = 0; y < 10; y++)
-            for (int x = 0; x < 10; x++)
+        for (int y = 0; y < height; y++)
+            for (int x = 0; x < width; x++)
                 this.sectors[y][x] = new Sector(x, y);
     }
 
@@ -29,9 +29,9 @@ public class Field
     }
 
     /**
-     * @param ship - корабль с позиционированными палубами
+     * @param type - тип корабля, который собираемся размещать
      */
-    public void placeShip(Ship ship, Sector sector)
+    public void placeShip(ship.Type type)
     {
         // TODO разместить корабль
     }
@@ -99,5 +99,18 @@ public class Field
                 return ship.attacked(targetSector);
 
         return false;
+    }
+
+    /**
+     * Проверить, остались ли корабли на плаву.
+     * @return - если такой корабль найден, возвращает false
+     */
+    public boolean isDefeated()
+    {
+        for (Ship ship : ships)
+            if (ship.isAfloat())
+                return false;
+
+        return true;
     }
 }

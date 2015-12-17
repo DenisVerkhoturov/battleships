@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Настройки игры
  */
-public class Settings // TODO сделать Serializable
+public class Settings // TODO сделать Serializable и сохранять в файл
 {
     private final int fieldWidth;
     private final int fieldHeight;

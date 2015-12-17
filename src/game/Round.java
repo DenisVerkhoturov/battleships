@@ -1,23 +1,39 @@
 package game;
 
 import field.Field;
-import player.Player;
 
 /**
  * Раунд игры
  */
-public class Round
+public class Round // TODO сделать Serializable и сохранять в файл
 {
-    private final Player player;
-    private final Player opponent;
     private Settings settings;
     private Field playerField;
     private Field opponentField;
 
-    public Round(Player player, Player opponent, Settings settings)
+    public Round(Settings settings)
     {
-        this.player = player;
-        this.opponent = opponent;
         this.settings = settings;
+        this.playerField = new Field(settings.getFieldWidth(), settings.getFieldHeight());
+        this.opponentField = new Field(settings.getFieldWidth(), settings.getFieldHeight());
+    }
+
+    public Field getPlayerField()
+    {
+        return this.playerField;
+    }
+
+    public Field opponentField()
+    {
+        return this.opponentField;
+    }
+
+    /**
+     * Проверить, можно ли считать раунд завершенным.
+     * @return - завершен ли раунд
+     */
+    public boolean isFinished()
+    {
+        return playerField.isDefeated();
     }
 }

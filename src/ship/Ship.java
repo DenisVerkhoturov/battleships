@@ -1,7 +1,6 @@
 package ship;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Корабль

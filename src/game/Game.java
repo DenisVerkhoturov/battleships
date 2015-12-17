@@ -1,7 +1,5 @@
 package game;
 
-import player.Player;
-
 /**
  * Игра
  */
@@ -17,6 +15,6 @@ public class Game
 
     public void newRound()
     {
-        this.round = new Round(new Player("Воробей"), new Player(""), settings);
+        this.round = new Round(settings);
     }
 }
