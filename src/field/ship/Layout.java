@@ -1,4 +1,4 @@
-package ship;
+package field.ship;
 
 import field.Sector;
 
@@ -13,9 +13,9 @@ public class Layout
     private final ArrayList<Sector> sectors;
     private final Type typeOfShip;
 
-    public Layout(Type type)
+    public Layout(Type type, ArrayList<Sector> availableSectors)
     {
-        this.sectors = new ArrayList<Sector>();
+        this.sectors = availableSectors;
         this.typeOfShip = type;
     }
 

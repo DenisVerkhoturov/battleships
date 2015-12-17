@@ -1,4 +1,4 @@
-package ship;
+package field.ship;
 
 /**
  * Тип коробля

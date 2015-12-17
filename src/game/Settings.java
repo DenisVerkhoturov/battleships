@@ -1,6 +1,6 @@
 package game;
 
-import ship.Type;
+import field.ship.Type;
 
 import java.util.Arrays;
 import java.util.List;

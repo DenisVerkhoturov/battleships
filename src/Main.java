@@ -38,7 +38,7 @@ public class Main
                     Sector sector = new Sector(1, 1);
 
                     Shot shot = player.shoot();
-                    shot.setStatus(npc.attacked(shot.getTarget().getX(), shot.getTarget().getY()));
+                    shot.setStatus(npc.attacked(shot.getTarget().getHorizontalOffset(), shot.getTarget().getVerticalOffset()));
                 }
 
                 /**
@@ -48,7 +48,7 @@ public class Main
                     Sector sector = new Sector(1, 1);
 
                     Shot shot = npc.shoot();
-                    shot.setStatus(player.attacked(shot.getTarget().getX(), shot.getTarget().getY()));
+                    shot.setStatus(player.attacked(shot.getTarget().getHorizontalOffset(), shot.getTarget().getVerticalOffset()));
                 }
             }
 
