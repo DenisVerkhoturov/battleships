@@ -1,9 +1,9 @@
-package field;
+package game.field.sector;
 
 /**
  * Сектор
  */
-public class Sector
+public abstract class Sector
 {
     private boolean shoot;
 

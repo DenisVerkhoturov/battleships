@@ -1,4 +1,6 @@
-package field.ship;
+package game.field.ship;
+
+import game.field.sector.Occupied;
 
 import java.util.ArrayList;
 
@@ -7,16 +9,14 @@ import java.util.ArrayList;
  */
 public class Ship
 {
-    private final Type type;
-    private final ArrayList <Deck> decks;
+    private final ArrayList <Occupied> decks;
 
     public Ship(Layout layout)
     {
-        this.type = layout.getTypeOfShip();
-        this.decks = new ArrayList<Deck>();
+        this.decks = new ArrayList <Occupied>();
 
-        for (field.Sector sector : layout.getSectors())
-            decks.add((Deck) sector);
+        for (Occupied sector : layout.getSectors())
+            decks.add(sector);
     }
 
     /**
@@ -25,7 +25,7 @@ public class Ship
      */
     public boolean isAfloat()
     {
-        for (Deck deck : decks)
+        for (Occupied deck : decks)
             if (deck.isIntact())
                 return true;
 

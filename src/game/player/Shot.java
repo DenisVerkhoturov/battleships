@@ -1,6 +1,6 @@
-package player;
+package game.player;
 
-import field.Sector;
+import game.field.sector.Sector;
 
 /**
  * Выстрел
@@ -13,7 +13,6 @@ public class Shot
     public Shot(Sector target)
     {
         this.target = target;
-        this.target.markAsShoot();
     }
 
     /**

@@ -1,4 +1,4 @@
-package field.ship;
+package game.field.ship;
 
 /**
  * Тип коробля

@@ -1,7 +1,7 @@
 package game;
 
-import field.ship.Layout;
-import field.ship.Type;
+import game.field.ship.Layout;
+import game.field.ship.Type;
 
 /**
  * Раунд игры
@@ -9,22 +9,22 @@ import field.ship.Type;
 public class Round // TODO сделать Serializable и сохранять в файл
 {
     private Settings settings;
-    private field.Player playerField;
-    private field.Opponent opponentField;
+    private game.field.Player playerField;
+    private game.field.Opponent opponentField;
 
     public Round(Settings settings)
     {
         this.settings = settings;
-        this.playerField = new field.Player(settings.getFieldWidth(), settings.getFieldHeight());
-        this.opponentField = new field.Opponent(settings.getFieldWidth(), settings.getFieldHeight());
+        this.playerField = new game.field.Player(settings.getFieldWidth(), settings.getFieldHeight());
+        this.opponentField = new game.field.Opponent(settings.getFieldWidth(), settings.getFieldHeight());
     }
 
-    public field.Player getPlayerField()
+    public game.field.Player getPlayerField()
     {
         return this.playerField;
     }
 
-    public field.Opponent opponentField()
+    public game.field.Opponent opponentField()
     {
         return this.opponentField;
     }
@@ -36,7 +36,7 @@ public class Round // TODO сделать Serializable и сохранять в 
         this.playerField.placeShip(layout);
     }
 
-    public field.ship.Type chooseShip()
+    public Type chooseShip()
     {
         // TODO
         return Type.SINGLE_DECK;

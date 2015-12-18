@@ -1,6 +1,6 @@
-package player;
+package game.player;
 
-import field.*;
+import game.field.sector.Sector;
 import game.Round;
 
 /**

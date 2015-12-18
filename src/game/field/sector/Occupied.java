@@ -1,13 +1,13 @@
-package field.ship;
+package game.field.sector;
 
 /**
- * Палуба
+ * Оккупированный сектор - палуба
  */
-public class Deck extends Occupied
+public class Occupied extends Sector
 {
     private boolean intact = true;
 
-    public Deck() {
+    public Occupied() {
         super();
     }
 

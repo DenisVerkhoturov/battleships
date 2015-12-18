@@ -1,6 +1,9 @@
-package field;
+package game.field;
 
-import field.ship.*;
+import game.field.sector.Occupied;
+import game.field.sector.Sector;
+import game.field.ship.*;
+import game.field.ship.Layout;
 
 import java.util.ArrayList;
 

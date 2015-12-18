@@ -1,0 +1,41 @@
+package game.field.ship;
+
+import game.field.sector.Occupied;
+
+import java.util.ArrayList;
+
+/**
+ * Расположение корабля
+ * Используется, как указатель для определения корабля
+ */
+public class Layout
+{
+    private final ArrayList<Occupied> sectors;
+    private final Type type;
+
+    public Layout()
+    {
+        this.type = null;
+        this.sectors = new ArrayList<Occupied>();
+    }
+
+    public Layout(Type type)
+    {
+        this.type = type;
+        this.sectors = new ArrayList<Occupied>(type.getNumberOfDecks());
+    }
+
+    public void addToLayout(Occupied sector)
+    {
+        if (this.type == null)
+            this.sectors.add(sector);
+        else
+            if (this.sectors.size() == this.type.getNumberOfDecks())
+                this.sectors.add(sector);
+    }
+
+    public ArrayList<Occupied> getSectors()
+    {
+        return this.sectors;
+    }
+}

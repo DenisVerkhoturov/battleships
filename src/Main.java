@@ -1,7 +1,7 @@
-import field.Sector;
+import game.field.sector.Sector;
 import game.Game;
-import player.Player;
-import player.Shot;
+import game.player.Player;
+import game.player.Shot;
 
 import java.io.BufferedReader;
 import java.io.IOException;
