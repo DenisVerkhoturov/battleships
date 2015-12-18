@@ -12,6 +12,13 @@ public class Empty extends Sector
         this.available = true;
     }
 
+    @Override
+    public Sector attacked()
+    {
+        super.shoot = true;
+        return this;
+    }
+
     public boolean isAvailable()
     {
         return this.available;

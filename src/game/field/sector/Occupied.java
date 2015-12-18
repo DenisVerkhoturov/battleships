@@ -19,10 +19,11 @@ public class Occupied extends Sector
         return this.intact;
     }
 
-    public boolean attacked()
+    @Override
+    public Occupied attacked()
     {
-        super.attacked();
+        super.shoot = true;
         this.intact = false;
-        return true;
+        return this;
     }
 }

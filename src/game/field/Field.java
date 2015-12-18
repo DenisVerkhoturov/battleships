@@ -31,7 +31,13 @@ public abstract class Field
         return this.ships;
     }
 
-    public boolean attacked(int horizontalOffset, int verticalOffset)
+    /**
+     * Вычиляет результат попадания по указанному сектору.
+     * @param horizontalOffset - горизонтальное смещение сектора
+     * @param verticalOffset - вертикальное смещение сектора
+     * @return - объяект сектора, по которому совершили выстрел
+     */
+    public Sector attacked(int horizontalOffset, int verticalOffset)
     {
         return (sectors.get(verticalOffset).get(horizontalOffset)).attacked();
     }

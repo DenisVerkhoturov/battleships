@@ -5,21 +5,17 @@ package game.field.sector;
  */
 public abstract class Sector
 {
-    private boolean shoot;
+    protected boolean shoot;
 
     public Sector()
     {
         this.shoot = false;
     }
 
-    public boolean attacked()
-    {
-        this.shoot = true;
-        return false;
-    }
-
-    protected boolean isShoot()
+    public boolean isShoot()
     {
         return this.shoot;
     }
+
+    public abstract Sector attacked();
 }
