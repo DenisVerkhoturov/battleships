@@ -1,4 +1,4 @@
-package game.field;
+package models.field;
 
 /**
  * Поле оппонента

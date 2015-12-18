@@ -1,9 +1,9 @@
-package game.field;
+package models.field;
 
-import game.field.sector.Occupied;
-import game.field.sector.Sector;
-import game.field.ship.*;
-import game.field.ship.Layout;
+import models.field.sector.Empty;
+import models.field.sector.Sector;
+import models.field.ship.Layout;
+import models.field.ship.Ship;
 
 import java.util.ArrayList;
 
@@ -31,11 +31,19 @@ public class Player extends Field
     {
         ArrayList <Sector> possibleSectors = new ArrayList<Sector>();
 
-        for (ArrayList <? super Sector> row : this.sectors)
-            for (Object sector : row)
-                if (!(sector instanceof Occupied))
-                    possibleSectors.add((Sector) sector);
+        for (ArrayList <Sector> row : this.sectors)
+            for (Sector sector : row)
+                if (!(sector instanceof Empty))
+                    possibleSectors.add(sector);
 
         return possibleSectors;
+    }
+
+    /**
+     * Обозначить сектора вокруг корабля как недоступные
+     */
+    private void surroundShip()
+    {
+        // TODO реализовать метод
     }
 }

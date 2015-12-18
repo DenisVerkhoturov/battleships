@@ -1,4 +1,4 @@
-package game.field.sector;
+package models.field.sector;
 
 /**
  * Пустой сектор

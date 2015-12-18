@@ -1,7 +1,8 @@
-package game.field;
+package models.field;
 
-import game.field.sector.*;
-import game.field.ship.*;
+import models.field.sector.Empty;
+import models.field.sector.Sector;
+import models.field.ship.Ship;
 
 import java.util.ArrayList;
 
@@ -12,6 +13,7 @@ public abstract class Field
 {
     protected final ArrayList <ArrayList <Sector>> sectors;
     protected final ArrayList <Ship> ships;
+    private final Pointer pointer;
 
     protected Field(int width, int height)
     {
@@ -24,6 +26,13 @@ public abstract class Field
             for (int horizontalOffset = 0; horizontalOffset < row.size(); horizontalOffset++)
                 row.add(new Empty());
         }
+
+        this.pointer = new Pointer(0, 0);
+    }
+
+    public Pointer getPointer()
+    {
+        return this.pointer;
     }
 
     public ArrayList <Ship> getShips()
