@@ -1,4 +1,6 @@
-package game;
+package models;
+
+import models.player.Player;
 
 /**
  * Игра
@@ -15,6 +17,6 @@ public class Game
 
     public void newRound()
     {
-        this.round = new Round(settings);
+        this.round = new Round(new Player(), new Player());
     }
 }
