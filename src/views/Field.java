@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Представление поля
+ * @author Verhoturov Denis - Leo.Scream.
  */
 public class Field extends JPanel
 {

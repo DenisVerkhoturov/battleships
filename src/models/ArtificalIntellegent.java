@@ -1,7 +1,7 @@
 package models;
 
 /**
- * Искусственный интеллект
+ * @author Verhoturov Denis - Leo.Scream.
  */
 public class ArtificalIntellegent extends User
 {

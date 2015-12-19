@@ -5,7 +5,7 @@ import models.field.ship.Type;
 import models.player.Player;
 
 /**
- * Раунд игры
+ * @author Verhoturov Denis - Leo.Scream.
  */
 public class Round // TODO сделать Serializable и сохранять в файл
 {

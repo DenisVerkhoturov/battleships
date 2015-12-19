@@ -5,8 +5,7 @@ import models.field.sector.Occupied;
 import java.util.ArrayList;
 
 /**
- * Расположение корабля
- * Используется, как указатель для определения корабля
+ * @author Verhoturov Denis - Leo.Scream.
  */
 public class Layout
 {

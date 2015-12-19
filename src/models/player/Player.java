@@ -5,7 +5,7 @@ import models.field.Pointer;
 import models.field.Opponent;
 
 /**
- * Игрок
+ * @author Verhoturov Denis - Leo.Scream.
  */
 public class Player
 {

@@ -1,7 +1,7 @@
 package models.field.ship;
 
 /**
- * Тип коробля
+ * @author Verhoturov Denis - Leo.Scream.
  */
 public enum Type
 {

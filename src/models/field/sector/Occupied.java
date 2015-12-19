@@ -1,7 +1,7 @@
 package models.field.sector;
 
 /**
- * Оккупированный сектор - палуба
+ * @author Verhoturov Denis - Leo.Scream.
  */
 public class Occupied extends Sector
 {

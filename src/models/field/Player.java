@@ -8,7 +8,7 @@ import models.field.ship.Ship;
 import java.util.ArrayList;
 
 /**
- * Поле игрока
+ * @author Verhoturov Denis - Leo.Scream.
  */
 public class Player extends Field
 {

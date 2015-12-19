@@ -3,7 +3,7 @@ package models;
 import models.player.Player;
 
 /**
- * Игра
+ * @author Verhoturov Denis - Leo.Scream.
  */
 public class Game
 {

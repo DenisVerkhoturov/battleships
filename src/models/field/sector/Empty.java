@@ -1,7 +1,7 @@
 package models.field.sector;
 
 /**
- * Пустой сектор
+ * @author Verhoturov Denis - Leo.Scream.
  */
 public class Empty extends Sector
 {

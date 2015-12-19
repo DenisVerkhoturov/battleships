@@ -1,7 +1,7 @@
 package models.field;
 
 /**
- * Поле оппонента
+ * @author Verhoturov Denis - Leo.Scream.
  */
 public class Opponent extends Field
 {

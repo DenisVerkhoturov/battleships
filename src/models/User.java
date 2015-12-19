@@ -1,7 +1,7 @@
 package models;
 
 /**
- * Пользователь приложения
+ * @author Verhoturov Denis - Leo.Scream.
  */
 public class User
 {

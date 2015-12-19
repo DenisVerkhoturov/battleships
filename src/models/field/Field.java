@@ -7,7 +7,7 @@ import models.field.ship.Ship;
 import java.util.ArrayList;
 
 /**
- * Поле боя
+ * @author Verhoturov Denis - Leo.Scream.
  */
 public abstract class Field
 {

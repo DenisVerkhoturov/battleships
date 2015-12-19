@@ -1,7 +1,7 @@
 package models.field.sector;
 
 /**
- * Сектор
+ * @author Verhoturov Denis - Leo.Scream.
  */
 public abstract class Sector
 {

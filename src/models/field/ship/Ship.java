@@ -5,7 +5,7 @@ import models.field.sector.Occupied;
 import java.util.ArrayList;
 
 /**
- * Корабль
+ * @author Verhoturov Denis - Leo.Scream.
  */
 public class Ship
 {

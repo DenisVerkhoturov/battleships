@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * Контроллер игры
+ * @author Verhoturov Denis - Leo.Scream.
  */
 public class Game implements ActionListener
 {

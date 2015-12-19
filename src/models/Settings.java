@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Настройки игры
+ * @author Verhoturov Denis - Leo.Scream.
  */
 public class Settings // TODO сделать Serializable и сохранять в файл
 {

@@ -1,7 +1,7 @@
 package models.field;
 
 /**
- * Указатель на сектор поля
+ * @author Verhoturov Denis - Leo.Scream.
  */
 public class Pointer
 {

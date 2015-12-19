@@ -2,6 +2,9 @@ package views;
 
 import javax.swing.*;
 
+/**
+ * @author Verhoturov Denis - Leo.Scream.
+ */
 public class Game extends JFrame
 {
     private static final long serialVersionUID = 1L;
