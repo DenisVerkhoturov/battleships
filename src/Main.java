@@ -13,7 +13,6 @@ public class Main
             e.printStackTrace();
         }
 
-        int random = (int) Math.random();
         controllers.Game game = new controllers.Game();
     }
 }

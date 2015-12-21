@@ -46,9 +46,9 @@ public abstract class Field
      * @param verticalOffset - вертикальное смещение сектора
      * @return - объяект сектора, по которому совершили выстрел
      */
-    public Sector attacked(int horizontalOffset, int verticalOffset)
+    public Sector attacked(Pointer target)
     {
-        return (sectors.get(verticalOffset).get(horizontalOffset)).attacked();
+        return (sectors.get(target.getVerticalOffset()).get(target.getHorizontalOffset())).attacked();
     }
 
     /**

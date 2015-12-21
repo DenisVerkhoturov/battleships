@@ -2,17 +2,19 @@ package models.player;
 
 import models.field.sector.Sector;
 import models.field.Pointer;
-import models.field.Opponent;
+import models.field.ship.Type;
+
+import java.util.ArrayList;
 
 /**
  * @author Verhoturov Denis - Leo.Scream.
  */
 public class Player
 {
-    private models.field.Player field;
-    private Opponent opponent;
+    private models.field.Player myField;
+    private models.field.Opponent opponentField;
 
-    public Player()
+    public Player(ArrayList <Type> ships)
     {
     }
 
@@ -24,25 +26,36 @@ public class Player
     }
 
     /**
-     * @return - объек выстрела
+     * @return
+     *        Объек указателя на сектор, по которому был произведен выстрел.
      */
     public Pointer shoot()
     {
-        return this.opponent.getPointer();
+        return opponentField.getPointer();
     }
 
     /**
-     * @param x - горизонтальный индекс ячейки
-     * @param y - вертикальный индекс ячейки
-     * @return - перенаправляет проверку выстрела объекту класса Field текущего игрока
+     * @param target
+     *        Указатель на целевой сектор, по которому произведен выстрел.
+     *
+     * @return
+     *        Перенаправляет проверку результатов попадания объекту класса Field текущего игрока.
+     *        Вернет объект сектора, готовый к подстановке в поле.
      */
-    public Sector attacked(int x, int y)
+    public Sector attacked(Pointer target)
     {
-        return this.field.attacked(x, y);
+        return myField.attacked(target);
     }
 
+    /**
+     * Проверить, побежден ли уже игрок.
+     *
+     * @return
+     *        true - если флот игрока разбит.
+     *        false - если остались корабли на плаву.
+     */
     public boolean isDefeated()
     {
-        return field.isDefeated();
+        return myField.isDefeated();
     }
 }

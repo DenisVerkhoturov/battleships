@@ -40,11 +40,5 @@ public class Game extends JFrame
         opponent = new Field();
         opponent.setBounds(190, 31, 151, 151);
         this.getContentPane().add(opponent);
-
-        JMenuBar menuBar = new JMenuBar();
-        menuBar.setBounds(0, 0, 477, 21);
-        this.getContentPane().add(menuBar);
-
-        menuBar.add(new JMenu("Игра").add(new JMenuItem("Новая игра")));
     }
 }

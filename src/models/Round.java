@@ -1,5 +1,6 @@
 package models;
 
+import models.field.Pointer;
 import models.field.ship.Layout;
 import models.field.ship.Type;
 import models.player.Player;
@@ -7,7 +8,7 @@ import models.player.Player;
 /**
  * @author Verhoturov Denis - Leo.Scream.
  */
-public class Round // TODO сделать Serializable и сохранять в файл
+public class Round implements Runnable // TODO сделать Serializable и сохранять в файл
 {
     private Player player;
     private Player opponent;
@@ -25,10 +26,15 @@ public class Round // TODO сделать Serializable и сохранять в 
         this.player.placeShip();
     }
 
-    public Type chooseShip()
+    @Override
+    public void run()
     {
-        // TODO
-        return Type.SINGLE_DECK;
+        while (!this.isFinished()) {
+            while(!player.isDefeated() || !opponent.isDefeated()) {
+                Pointer target = player.shoot();
+                opponent.attacked(target);
+            }
+        }
     }
 
     /**
@@ -37,6 +43,7 @@ public class Round // TODO сделать Serializable и сохранять в 
      */
     public boolean isFinished()
     {
-        return player.isDefeated();
+        return this.player.isDefeated() || this.opponent.isDefeated();
     }
+
 }
