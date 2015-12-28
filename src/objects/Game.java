@@ -1,6 +1,9 @@
-package models;
+package objects;
 
-import models.player.Player;
+import objects.field.ship.Type;
+import objects.player.Player;
+
+import java.util.ArrayList;
 
 /**
  * @author Verhoturov Denis - Leo.Scream.
@@ -17,6 +20,6 @@ public class Game
 
     public void newRound()
     {
-        this.round = new Round(new Player(), new Player());
+        this.round = new Round(new Player(new ArrayList<Type>()), new Player(new ArrayList<Type>()));
     }
 }

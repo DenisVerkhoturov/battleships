@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.menu.Help">
+    <center>
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Немного информации о разработчиках" BorderPane.alignment="CENTER" />
+    </center>
+    <bottom>
+        <Button onAction="#main" text="Вернуться" BorderPane.alignment="CENTER" />
+    </bottom>
+</BorderPane>

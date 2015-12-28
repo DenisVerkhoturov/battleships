@@ -1,9 +1,9 @@
-package models;
+package objects;
 
-import models.field.Pointer;
-import models.field.ship.Layout;
-import models.field.ship.Type;
-import models.player.Player;
+import objects.field.Pointer;
+import objects.field.ship.Layout;
+import objects.field.ship.Type;
+import objects.player.Player;
 
 /**
  * @author Verhoturov Denis - Leo.Scream.

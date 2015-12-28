@@ -1,8 +1,8 @@
-package models.player;
+package objects.player;
 
-import models.field.sector.Sector;
-import models.field.Pointer;
-import models.field.ship.Type;
+import objects.field.sector.Sector;
+import objects.field.Pointer;
+import objects.field.ship.Type;
 
 import java.util.ArrayList;
 
@@ -11,8 +11,8 @@ import java.util.ArrayList;
  */
 public class Player
 {
-    private models.field.Player myField;
-    private models.field.Opponent opponentField;
+    private objects.field.Player myField;
+    private objects.field.Opponent opponentField;
 
     public Player(ArrayList <Type> ships)
     {

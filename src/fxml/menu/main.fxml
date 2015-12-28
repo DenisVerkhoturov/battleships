@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.menu.Main">
+   <top>
+      <Button text="Помощь" onAction="#help" BorderPane.alignment="CENTER" />
+   </top>
+   <left>
+      <Button text="Настройки" onAction="#settings" BorderPane.alignment="CENTER" />
+   </left>
+   <right>
+      <Button text="Продолжить" onAction="#resume" BorderPane.alignment="CENTER" />
+   </right>
+   <bottom>
+      <Button text="Новое сражение" onAction="#battle" BorderPane.alignment="CENTER" />
+   </bottom>
+</BorderPane>

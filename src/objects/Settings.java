@@ -1,6 +1,6 @@
-package models;
+package objects;
 
-import models.field.ship.Type;
+import objects.field.ship.Type;
 
 import java.util.Arrays;
 import java.util.List;

@@ -1,4 +1,4 @@
-package models;
+package objects;
 
 /**
  * @author Verhoturov Denis - Leo.Scream.

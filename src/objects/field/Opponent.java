@@ -1,4 +1,4 @@
-package models.field;
+package objects.field;
 
 /**
  * @author Verhoturov Denis - Leo.Scream.

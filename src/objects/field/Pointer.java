@@ -1,4 +1,4 @@
-package models.field;
+package objects.field;
 
 /**
  * Указатель на сектор

@@ -1,8 +1,8 @@
-package models.field;
+package objects.field;
 
-import models.field.sector.Empty;
-import models.field.sector.Sector;
-import models.field.ship.Ship;
+import objects.field.sector.Empty;
+import objects.field.sector.Sector;
+import objects.field.ship.Ship;
 
 import java.util.ArrayList;
 
@@ -42,8 +42,7 @@ public abstract class Field
 
     /**
      * Вычиляет результат попадания по указанному сектору.
-     * @param horizontalOffset - горизонтальное смещение сектора
-     * @param verticalOffset - вертикальное смещение сектора
+     * @param target - указатель на сектор
      * @return - объяект сектора, по которому совершили выстрел
      */
     public Sector attacked(Pointer target)

@@ -1,4 +1,4 @@
-package models.field.ship;
+package objects.field.ship;
 
 /**
  * @author Verhoturov Denis - Leo.Scream.

@@ -1,6 +1,6 @@
-package models.field.ship;
+package objects.field.ship;
 
-import models.field.sector.Occupied;
+import objects.field.sector.Occupied;
 
 import java.util.ArrayList;
 
