@@ -8,7 +8,7 @@ import javafx.fxml.FXML;
 /**
  * @author Verhoturov Denis - Leo.Scream.
  */
-public class Main implements ControlledScreen
+public class Battle implements ControlledScreen
 {
     ScreensController controller;
 
@@ -19,24 +19,16 @@ public class Main implements ControlledScreen
     }
 
     @FXML
-    public void help(ActionEvent actionEvent)
+    public void main(ActionEvent actionEvent)
     {
-        controller.setScreen(start.Main.menuHelpID);
+        controller.setScreen(start.Main.menuMainID);
     }
 
     @FXML
-    public void settings(ActionEvent actionEvent)
-    {
-    }
+    public void singlePlayer(ActionEvent actionEvent)
+    {}
 
     @FXML
-    public void resume(ActionEvent actionEvent)
-    {
-    }
-
-    @FXML
-    public void battle(ActionEvent actionEvent)
-    {
-        controller.setScreen(start.Main.menuBattleID);
-    }
+    public void multiPlayer(ActionEvent actionEvent)
+    {}
 }

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.menu.Battle">
+    <children>
+        <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <top>
+                <Button mnemonicParsing="false" onAction="#main" prefHeight="25.0" prefWidth="450.0" text="Вернуться" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            </top>
+            <center>
+                <AnchorPane prefHeight="200.0" prefWidth="400.0" BorderPane.alignment="CENTER" />
+            </center>
+            <right>
+                <Button mnemonicParsing="false" onAction="#singlePlayer" prefHeight="200.0" prefWidth="25.0" text="Одиночный режим" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            </right>
+            <bottom>
+                <Button mnemonicParsing="false" onAction="#multiPlayer" prefHeight="25.0" prefWidth="450.0" text="Сетевой режим" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+            </bottom>
+        </BorderPane>
+    </children>
+</AnchorPane>

@@ -1,14 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.menu.Help">
-    <center>
-        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Немного информации о разработчиках" BorderPane.alignment="CENTER" />
-    </center>
-    <bottom>
-        <Button onAction="#main" text="Вернуться" BorderPane.alignment="CENTER" />
-    </bottom>
-</BorderPane>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.menu.Help">
+   <children>
+      <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <top>
+          <AnchorPane prefHeight="25.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+      </top>
+      <left>
+          <AnchorPane prefHeight="200.0" prefWidth="25.0" BorderPane.alignment="CENTER" />
+      </left>
+      <center>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Немного информации о разработчиках" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" BorderPane.alignment="CENTER" />
+      </center>
+      <right>
+          <AnchorPane prefHeight="200.0" prefWidth="25.0" BorderPane.alignment="CENTER" />
+      </right>
+      <bottom>
+            <Button mnemonicParsing="false" onAction="#main" prefHeight="25.0" prefWidth="450.0" text="Вернуться" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      </bottom>
+      </BorderPane>
+   </children>
+</AnchorPane>

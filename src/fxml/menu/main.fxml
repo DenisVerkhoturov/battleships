@@ -1,20 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
 
-<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.menu.Main">
-   <top>
-      <Button text="Помощь" onAction="#help" BorderPane.alignment="CENTER" />
-   </top>
-   <left>
-      <Button text="Настройки" onAction="#settings" BorderPane.alignment="CENTER" />
-   </left>
-   <right>
-      <Button text="Продолжить" onAction="#resume" BorderPane.alignment="CENTER" />
-   </right>
-   <bottom>
-      <Button text="Новое сражение" onAction="#battle" BorderPane.alignment="CENTER" />
-   </bottom>
-</BorderPane>
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.menu.Main">
+   <children>
+      <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <Button mnemonicParsing="false" onAction="#help" prefHeight="25.0" prefWidth="450.0" text="Помощь" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+         </top>
+         <left>
+            <Button mnemonicParsing="false" onAction="#settings" prefHeight="200.0" prefWidth="25.0" text="Настройки" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+         </left>
+         <center>
+            <AnchorPane prefHeight="200.0" prefWidth="400.0" BorderPane.alignment="CENTER" />
+         </center>
+         <right>
+            <Button mnemonicParsing="false" onAction="#resume" prefHeight="200.0" prefWidth="25.0" text="Продолжить" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+         </right>
+         <bottom>
+            <Button mnemonicParsing="false" onAction="#battle" prefHeight="25.0" prefWidth="450.0" text="Новое сражение" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+         </bottom>
+      </BorderPane>
+   </children>
+</AnchorPane>

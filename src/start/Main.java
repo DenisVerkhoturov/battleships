@@ -13,8 +13,12 @@ public class Main extends Application
 {
     public static String menuMainID = "main";
     public static String menuMainFile = "../fxml/menu/main.fxml";
+
     public static String menuHelpID = "help";
     public static String menuHelpFile = "../fxml/menu/help.fxml";
+
+    public static String menuBattleID = "battle";
+    public static String menuBattleFile = "../fxml/menu/battle.fxml";
 
     public static void main(String[] args)
     {
@@ -27,9 +31,8 @@ public class Main extends Application
         ScreensController container = new ScreensController();
         container.loadScreen(menuMainID, menuMainFile);
         container.loadScreen(menuHelpID, menuHelpFile);
-
+        container.loadScreen(menuBattleID, menuBattleFile);
         container.setScreen(menuMainID);
-
 
         Group root = new Group();
         root.getChildren().addAll(container);

@@ -18,7 +18,7 @@ import javafx.util.Duration;
  */
 public class ScreensController  extends StackPane
 {
-    private HashMap<String, Node> screens = new HashMap<>();
+    private HashMap<String, Node> container = new HashMap<>();
 
     public ScreensController()
     {
@@ -27,12 +27,12 @@ public class ScreensController  extends StackPane
 
     public void addScreen(String name, Node screen)
     {
-        screens.put(name, screen);
+        container.put(name, screen);
     }
 
     public Node getScreen(String name)
     {
-        return screens.get(name);
+        return container.get(name);
     }
 
     /**
@@ -65,7 +65,7 @@ public class ScreensController  extends StackPane
      */
     public boolean setScreen(final String name)
     {
-        if (screens.get(name) != null) {
+        if (container.get(name) != null) {
             final DoubleProperty opacity = opacityProperty();
 
             if (!getChildren().isEmpty()) {
@@ -75,7 +75,7 @@ public class ScreensController  extends StackPane
                             @Override
                             public void handle(ActionEvent t) {
                                 getChildren().remove(0);
-                                getChildren().add(0, screens.get(name));
+                                getChildren().add(0, container.get(name));
                                 Timeline fadeIn = new Timeline(
                                         new KeyFrame(Duration.ZERO, new KeyValue(opacity, 0.0)),
                                         new KeyFrame(new Duration(800), new KeyValue(opacity, 1.0)));
@@ -86,7 +86,7 @@ public class ScreensController  extends StackPane
 
             } else {
                 setOpacity(0.0);
-                getChildren().add(screens.get(name));
+                getChildren().add(container.get(name));
                 Timeline fadeIn = new Timeline(
                         new KeyFrame(Duration.ZERO, new KeyValue(opacity, 0.0)),
                         new KeyFrame(new Duration(2500), new KeyValue(opacity, 1.0)));
@@ -107,7 +107,7 @@ public class ScreensController  extends StackPane
      */
     public boolean unloadScreen(String name)
     {
-        if (screens.remove(name) == null) {
+        if (container.remove(name) == null) {
             System.out.println("Screen didn't exist");
             return false;
         } else {
