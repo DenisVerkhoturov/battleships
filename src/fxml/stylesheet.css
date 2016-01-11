@@ -1,0 +1,25 @@
+.content {
+	-fx-pref-height: 250;
+	-fx-pref-width: 450;
+}
+
+.top,
+.bottom {
+	-fx-pref-width: 400;
+	-fx-pref-height: 25;
+}
+
+.left,
+.right  {
+	-fx-pref-width: 200;
+}
+
+.left {
+    -fx-rotate: 90;
+	-fx-translate-x: -87;
+}
+
+.right {
+    -fx-rotate: 270;
+	-fx-translate-x: 87;
+}

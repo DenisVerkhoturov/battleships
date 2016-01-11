@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.battle.Placement">
+
+    <children>
+        <BorderPane styleClass="content" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+
+            <center>
+                  <HBox layoutX="0.5" layoutY="0.5" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" BorderPane.alignment="CENTER">
+                      <children>
+                          <GridPane fx:id="player" gridLinesVisible="true">
+                              <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="200.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="200.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="200.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="200.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="200.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="200.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="200.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="200.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="200.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="200.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                  <RowConstraints minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                          </GridPane>
+
+                          <GridPane fx:id="opponent" gridLinesVisible="true">
+                              <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="200.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="200.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="200.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="200.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="200.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="200.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="200.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="200.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="200.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="200.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                  <RowConstraints minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                          </GridPane>
+                      </children>
+               <BorderPane.margin>
+                  <Insets bottom="25.0" top="25.0" />
+               </BorderPane.margin>
+                  </HBox>
+            </center>
+
+            <right>
+                <Button onAction="#battle" styleClass="right" text="В бой" BorderPane.alignment="CENTER_RIGHT" />
+            </right>
+
+            <left>
+                <Button onAction="#menu" styleClass="left" text="Вернуться" BorderPane.alignment="CENTER_LEFT" />
+            </left>
+
+        </BorderPane>
+    </children>
+
+    <stylesheets>
+        <URL value="@../stylesheet.css" />
+    </stylesheets>
+</AnchorPane>

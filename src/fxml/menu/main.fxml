@@ -1,28 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.*?>
+<?import java.net.URL?>
 
+<AnchorPane xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controllers.menu.Main">
 
-<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.menu.Main">
-   <children>
-      <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <top>
-            <Button mnemonicParsing="false" onAction="#help" prefHeight="25.0" prefWidth="450.0" text="Помощь" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-         </top>
-         <left>
-            <Button mnemonicParsing="false" onAction="#settings" prefHeight="200.0" prefWidth="25.0" text="Настройки" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
-         </left>
-         <center>
-            <AnchorPane prefHeight="200.0" prefWidth="400.0" BorderPane.alignment="CENTER" />
-         </center>
-         <right>
-            <Button mnemonicParsing="false" onAction="#resume" prefHeight="200.0" prefWidth="25.0" text="Продолжить" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-         </right>
-         <bottom>
-            <Button mnemonicParsing="false" onAction="#battle" prefHeight="25.0" prefWidth="450.0" text="Новое сражение" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-         </bottom>
-      </BorderPane>
-   </children>
+    <children>
+        <BorderPane styleClass="content"
+                    AnchorPane.bottomAnchor="0.0"
+                    AnchorPane.leftAnchor="0.0"
+                    AnchorPane.rightAnchor="0.0"
+                    AnchorPane.topAnchor="0.0">
+
+            <top>
+                <Button onAction="#help" styleClass="top" text="Помощь" BorderPane.alignment="TOP_CENTER"/>
+            </top>
+
+            <left>
+                <Button onAction="#settings" styleClass="left" text="Настройки" BorderPane.alignment="CENTER_LEFT"/>
+            </left>
+
+            <right>
+                <Button onAction="#resume" styleClass="right" text="Продолжить" BorderPane.alignment="CENTER_RIGHT"/>
+            </right>
+
+            <bottom>
+                <Button onAction="#battle" styleClass="bottom" text="Новое сражение"
+                        BorderPane.alignment="BOTTOM_CENTER"/>
+            </bottom>
+
+        </BorderPane>
+    </children>
+
+    <stylesheets>
+        <URL value="@../stylesheet.css"/>
+    </stylesheets>
 </AnchorPane>

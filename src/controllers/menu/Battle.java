@@ -4,13 +4,14 @@ import framework.ControlledScreen;
 import framework.ScreensController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import start.*;
 
 /**
  * @author Verhoturov Denis - Leo.Scream.
  */
 public class Battle implements ControlledScreen
 {
-    ScreensController controller;
+    private ScreensController controller;
 
     @Override
     public void setScreenParent(ScreensController parent)
@@ -26,7 +27,9 @@ public class Battle implements ControlledScreen
 
     @FXML
     public void singlePlayer(ActionEvent actionEvent)
-    {}
+    {
+        controller.setScreen(start.Main.battlePlacementID);
+    }
 
     @FXML
     public void multiPlayer(ActionEvent actionEvent)

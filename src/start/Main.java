@@ -20,6 +20,12 @@ public class Main extends Application
     public static String menuBattleID = "battle";
     public static String menuBattleFile = "../fxml/menu/battle.fxml";
 
+    public static String battlePlacementID = "placement";
+    public static String battlePlacementFile = "../fxml/battle/placement.fxml";
+
+    public static String battleBattleID = "battle";
+    public static String battleBattleFile = "../fxml/battle/battle.fxml";
+
     public static void main(String[] args)
     {
         launch(args);
@@ -32,6 +38,8 @@ public class Main extends Application
         container.loadScreen(menuMainID, menuMainFile);
         container.loadScreen(menuHelpID, menuHelpFile);
         container.loadScreen(menuBattleID, menuBattleFile);
+        container.loadScreen(battlePlacementID, battlePlacementFile);
+        container.loadScreen(battleBattleID, battleBattleFile);
         container.setScreen(menuMainID);
 
         Group root = new Group();
