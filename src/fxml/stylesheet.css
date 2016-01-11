@@ -1,12 +1,17 @@
 .content {
-	-fx-pref-height: 250;
-	-fx-pref-width: 450;
+	-fx-pref-height: 300;
+	-fx-pref-width: 500;
 }
 
-.top,
-.bottom {
+.button {
 	-fx-pref-width: 400;
-	-fx-pref-height: 25;
+	-fx-pref-height: 50;
+	-fx-background-radius: 0;
+	-fx-background-color: transparent;
+}
+
+.top:hover {
+    -fx-background-color: linear-gradient(from 0% 100% to 0% 0%, #dc143c, #661a33);
 }
 
 .left,
@@ -16,10 +21,18 @@
 
 .left {
     -fx-rotate: 90;
-	-fx-translate-x: -87;
 }
 
 .right {
     -fx-rotate: 270;
-	-fx-translate-x: 87;
+}
+
+.field {
+	-fx-hgap: 0;
+	-fx-vgap: 0;
+	-fx-alignment: center;
+	-fx-grid-lines-visible: true;
+	
+	-fx-pref-width: 200;
+	-fx-pref-height: 200;
 }

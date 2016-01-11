@@ -17,7 +17,7 @@ public class Main extends Application
     public static String menuHelpID = "help";
     public static String menuHelpFile = "../fxml/menu/help.fxml";
 
-    public static String menuBattleID = "battle";
+    public static String menuBattleID = "newbattle";
     public static String menuBattleFile = "../fxml/menu/battle.fxml";
 
     public static String battlePlacementID = "placement";
@@ -46,6 +46,8 @@ public class Main extends Application
         root.getChildren().addAll(container);
         Scene scene = new Scene(root);
         stage.setTitle("Battle Ships");
+        stage.setMinWidth(500);
+        stage.setMinHeight(300);
         stage.setScene(scene);
         stage.show();
     }
