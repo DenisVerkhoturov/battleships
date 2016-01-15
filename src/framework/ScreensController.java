@@ -17,7 +17,8 @@ import java.util.HashMap;
 /**
  * @author Verhoturov Denis - Leo.Scream.
  */
-public class ScreensController extends StackPane {
+public class ScreensController extends StackPane
+{
     private HashMap<String, Node> container = new HashMap<>();
 
     public ScreensController()
@@ -27,6 +28,7 @@ public class ScreensController extends StackPane {
 
     public void addScreen(String name, Node screen)
     {
+
         container.put(name, screen);
     }
 
@@ -52,6 +54,7 @@ public class ScreensController extends StackPane {
             addScreen(name, loadScreen);
             return true;
         } catch (Exception e) {
+            System.out.println("Ошибка во время загрузки fxml");
             System.out.println(e.getMessage());
             return false;
         }
