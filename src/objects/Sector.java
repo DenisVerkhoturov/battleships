@@ -1,18 +1,36 @@
 package objects;
 
-import javafx.beans.property.SimpleStringProperty;
-import javafx.scene.image.ImageView;
-import javafx.util.Duration;
-
 /**
  * @author Verhoturov Denis - Leo.Scream.
  */
-public class Sector extends SpriteAnimation
+public class Sector
 {
+    private boolean shoot = false;
+    private boolean available = true;
 
-    private SimpleStringProperty symbol;
+    public boolean isShoot()
+    {
+        return this.shoot;
+    }
 
-    public Sector(ImageView imageView, Duration duration, int count, int columns, int horizontalOffset, int verticalOffset, int width, int height) {
-        super(imageView, duration, count, columns, horizontalOffset, verticalOffset, width, height);
+    public boolean Occupy()
+    {
+        if (this.available) {
+            this.available = false;
+            return true;
+        }
+
+        return false;
+    }
+
+    public boolean isAvailable()
+    {
+        return this.available;
+    }
+
+    public boolean attacked()
+    {
+        this.shoot = true;
+        return true;
     }
 }

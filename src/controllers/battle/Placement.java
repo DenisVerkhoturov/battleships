@@ -3,15 +3,12 @@ package controllers.battle;
 import framework.ControlledScreen;
 import framework.ScreensController;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
-import objects.Sector;
-import start.Main;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -46,6 +43,15 @@ public class Placement implements ControlledScreen, Initializable
                 this.player.add(new Text("x"), i, j);
             }
         }
+
+        this.player.setOnMouseClicked(new EventHandler<MouseEvent>() {
+
+            @Override
+            public void handle(MouseEvent event)
+            {
+
+            }
+        });
     }
 
     @FXML

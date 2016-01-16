@@ -40,11 +40,11 @@ public class SpriteAnimation extends Transition
     {
         final int index = Math.min((int) Math.floor(frac * this.count), count - 1);
 
-        if (index != lastIndex) {
+        if (index != this.lastIndex) {
             final int x = (index % this.columns) * this.width + this.horizontalOffset;
             final int y = (index / this.columns) * this.height + this.verticalOffset;
             imageView.setViewport(new Rectangle2D(x, y, this.width, this.height));
-            lastIndex = index;
+            this.lastIndex = index;
         }
     }
 }
