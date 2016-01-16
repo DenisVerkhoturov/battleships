@@ -22,13 +22,13 @@ public class Battle implements ControlledScreen
     @FXML
     public void main(ActionEvent actionEvent)
     {
-        controller.setScreen(start.Main.menuMainID);
+        controller.setScreen(start.BattleShips.menuMainID);
     }
 
     @FXML
     public void singlePlayer(ActionEvent actionEvent)
     {
-        controller.setScreen(start.Main.battlePlacementID);
+        controller.setScreen(start.BattleShips.battlePlacementID);
     }
 
     @FXML

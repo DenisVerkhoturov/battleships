@@ -21,7 +21,7 @@ public class Main implements ControlledScreen
     @FXML
     public void help(ActionEvent actionEvent)
     {
-        controller.setScreen(start.Main.menuHelpID);
+        controller.setScreen(start.BattleShips.menuHelpID);
     }
 
     @FXML
@@ -37,6 +37,6 @@ public class Main implements ControlledScreen
     @FXML
     public void battle(ActionEvent actionEvent)
     {
-        controller.setScreen(start.Main.menuBattleID);
+        controller.setScreen(start.BattleShips.menuBattleID);
     }
 }

@@ -19,6 +19,6 @@ public class Help implements ControlledScreen
 
     public void main(ActionEvent actionEvent)
     {
-        controller.setScreen(start.Main.menuMainID);
+        controller.setScreen(start.BattleShips.menuMainID);
     }
 }
