@@ -2,19 +2,30 @@ package start;
 
 import framework.ScreensController;
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import objects.Configurations;
+
+import java.io.File;
+import java.util.Locale;
+import java.util.ResourceBundle;
+import java.util.prefs.Preferences;
 
 /**
  * @author Verhoturov Denis - Leo.Scream.
  */
-public class BattleShips extends Application {
+public class BattleShips extends Application
+{
     public static String menuMainID = "main";
     public static String menuMainFile = "../fxml/menu/main.fxml";
 
     public static String menuHelpID = "help";
     public static String menuHelpFile = "../fxml/menu/help.fxml";
+
+    public static String menuSettingsID = "settings";
+    public static String menuSettingsFile = "../fxml/menu/settings.fxml";
 
     public static String menuBattleID = "newbattle";
     public static String menuBattleFile = "../fxml/menu/battle.fxml";
@@ -31,6 +42,7 @@ public class BattleShips extends Application {
         ScreensController container = new ScreensController();
         container.loadScreen(menuMainID, menuMainFile);
         container.loadScreen(menuHelpID, menuHelpFile);
+        container.loadScreen(menuSettingsID, menuSettingsFile);
         container.loadScreen(menuBattleID, menuBattleFile);
         container.loadScreen(battlePlacementID, battlePlacementFile);
         container.loadScreen(battleBattleID, battleBattleFile);

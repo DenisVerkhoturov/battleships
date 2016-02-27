@@ -11,8 +11,11 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
+import objects.Configurations;
 
 import java.util.HashMap;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 /**
  * @author Verhoturov Denis - Leo.Scream.
@@ -28,13 +31,7 @@ public class ScreensController extends StackPane
 
     public void addScreen(String name, Node screen)
     {
-
         container.put(name, screen);
-    }
-
-    public Node getScreen(String name)
-    {
-        return container.get(name);
     }
 
     /**
@@ -48,8 +45,9 @@ public class ScreensController extends StackPane
     {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(resource));
-            Parent loadScreen = (Parent) loader.load();
-            ControlledScreen controller = ((ControlledScreen) loader.getController());
+            loader.setResources(ResourceBundle.getBundle("bundles.Locale", new Locale(Configurations.getInstance().getLanguage().asCode())));
+            Parent loadScreen = loader.load();
+            ControlledScreen controller = loader.getController();
             controller.setScreenParent(this);
             addScreen(name, loadScreen);
             return true;
@@ -96,20 +94,6 @@ public class ScreensController extends StackPane
         } else {
             System.out.println("screen hasn't been loaded!!! \n");
             return false;
-        }
-    }
-
-    /**
-     * @param name Имя screen'a, который необходимо удалить из коллекции.
-     * @return Если screen'a с таким именем нет, вернет false.
-     */
-    public boolean unloadScreen(String name)
-    {
-        if (container.remove(name) == null) {
-            System.out.println("Screen didn't exist");
-            return false;
-        } else {
-            return true;
         }
     }
 }

@@ -35,21 +35,12 @@ public class Placement implements ControlledScreen, Initializable
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
-        int width = 10;
-        int height = 10;
-
-        for (int i = 0; i < height; i++) {
-            for (int j = 0; j < width; j++) {
-                this.player.add(new Text("x"), i, j);
-            }
-        }
-
         this.player.setOnMouseClicked(new EventHandler<MouseEvent>() {
 
             @Override
             public void handle(MouseEvent event)
             {
-
+                System.out.println(event);
             }
         });
     }

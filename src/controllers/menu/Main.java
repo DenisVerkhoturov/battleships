@@ -27,6 +27,7 @@ public class Main implements ControlledScreen
     @FXML
     public void settings(ActionEvent actionEvent)
     {
+        controller.setScreen(start.BattleShips.menuSettingsID);
     }
 
     @FXML
