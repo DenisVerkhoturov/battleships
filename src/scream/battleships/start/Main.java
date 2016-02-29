@@ -1,4 +1,4 @@
-package start;
+package scream.battleships.start;
 
 import javafx.application.Application;
 

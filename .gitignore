@@ -51,4 +51,4 @@ crashlytics-build.properties
 fabric.properties
 
 # Ignore resources
-resources/
+src/scream/battleships/resources/
