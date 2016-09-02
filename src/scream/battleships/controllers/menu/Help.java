@@ -1,6 +1,7 @@
 package scream.battleships.controllers.menu;
 
 import scream.battleships.framework.ControlledScreen;
+import scream.battleships.framework.Direction;
 import scream.battleships.framework.ScreensController;
 import javafx.event.ActionEvent;
 import scream.battleships.start.BattleShips;
@@ -20,6 +21,6 @@ public class Help implements ControlledScreen
 
     public void main(ActionEvent actionEvent)
     {
-        controller.setScreen(BattleShips.menuMainID);
+        controller.setScreen(BattleShips.menuMainID, Direction.DOWN);
     }
 }

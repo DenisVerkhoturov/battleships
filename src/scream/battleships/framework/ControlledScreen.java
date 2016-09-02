@@ -5,8 +5,5 @@ package scream.battleships.framework;
  */
 public interface ControlledScreen
 {
-    /**
-     * Метод предоставляет возможность инъецировать родительский ScreenPane
-     */
     void setScreenParent(ScreensController parent);
 }

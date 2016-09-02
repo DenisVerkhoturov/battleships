@@ -1,5 +1,7 @@
 package scream.battleships.controllers.battle;
 
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
 import scream.battleships.framework.ControlledScreen;
 import scream.battleships.framework.ScreensController;
 import javafx.event.ActionEvent;
@@ -18,42 +20,39 @@ import java.util.ResourceBundle;
  */
 public class Placement implements ControlledScreen, Initializable
 {
-    @FXML
-    private GridPane player;
+	@FXML
+	private Canvas battleground;
 
-    @FXML
-    private GridPane opponent;
+	private GraphicsContext ctx;
 
-    private ScreensController controller;
+	private ScreensController controller;
 
-    @Override
-    public void setScreenParent(ScreensController parent)
-    {
-        this.controller = parent;
-    }
+	@Override
+	public void setScreenParent(ScreensController parent)
+	{
+		this.controller = parent;
+	}
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle)
-    {
-        this.player.setOnMouseClicked(new EventHandler<MouseEvent>() {
+	@Override
+	public void initialize(URL url, ResourceBundle resourceBundle)
+	{
+		//drawBattleGround();
+	}
 
-            @Override
-            public void handle(MouseEvent event)
-            {
-                System.out.println(event);
-            }
-        });
-    }
+	@FXML
+	public void menu(ActionEvent actionEvent)
+	{
+		controller.setScreen(BattleShips.menuBattleID);
+	}
 
-    @FXML
-    public void menu(ActionEvent actionEvent)
-    {
-        controller.setScreen(BattleShips.menuBattleID);
-    }
+	@FXML
+	public void battle(ActionEvent actionEvent)
+	{
+		controller.setScreen(BattleShips.battleBattleID);
+	}
 
-    @FXML
-    public void battle(ActionEvent actionEvent)
-    {
-        controller.setScreen(BattleShips.battleBattleID);
-    }
+	private void drawBattleGround()
+	{
+        this.ctx.strokeRect(10, 10, 50, 50);
+	}
 }

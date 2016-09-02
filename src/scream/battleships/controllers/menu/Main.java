@@ -1,6 +1,7 @@
 package scream.battleships.controllers.menu;
 
 import scream.battleships.framework.ControlledScreen;
+import scream.battleships.framework.Direction;
 import scream.battleships.framework.ScreensController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,13 +23,13 @@ public class Main implements ControlledScreen
     @FXML
     public void help(ActionEvent actionEvent)
     {
-        controller.setScreen(BattleShips.menuHelpID);
+        controller.setScreen(BattleShips.menuHelpID, Direction.UP);
     }
 
     @FXML
     public void settings(ActionEvent actionEvent)
     {
-        controller.setScreen(BattleShips.menuSettingsID);
+        controller.setScreen(BattleShips.menuSettingsID, Direction.LEFT);
     }
 
     @FXML
@@ -39,6 +40,6 @@ public class Main implements ControlledScreen
     @FXML
     public void battle(ActionEvent actionEvent)
     {
-        controller.setScreen(BattleShips.menuBattleID);
+        controller.setScreen(BattleShips.menuBattleID, Direction.DOWN);
     }
 }

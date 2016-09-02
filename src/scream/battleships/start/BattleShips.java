@@ -1,6 +1,6 @@
 package scream.battleships.start;
 
-import scream.battleships.configurations.Configurations;
+import scream.battleships.configurations.Settings;
 import scream.battleships.framework.ScreensController;
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -55,6 +55,6 @@ public class BattleShips extends Application
     @Override
     public void stop() throws Exception
     {
-        Configurations.getInstance().save();
+        Settings.getInstance().save();
     }
 }

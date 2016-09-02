@@ -9,9 +9,9 @@ import java.util.prefs.Preferences;
 /**
  * @author Verhoturov Denis - Leo.Scream.
  */
-public class Configurations
+public class Settings
 {
-    private static Configurations instance;
+    private static Settings instance;
     Preferences userPreferences;
 
     private SimpleStringProperty userName;
@@ -19,7 +19,7 @@ public class Configurations
 
     private final ObservableList<Language> languages = FXCollections.observableArrayList();
 
-    private Configurations()
+    private Settings()
     {
         this.userPreferences = Preferences.userNodeForPackage(getClass());
         this.userName = new SimpleStringProperty(userPreferences.get("user_name", ""));
@@ -27,10 +27,10 @@ public class Configurations
         this.languages.addAll(Language.values());
     }
 
-    public static Configurations getInstance()
+    public static Settings getInstance()
     {
         if (instance == null)
-            instance = new Configurations();
+            instance = new Settings();
 
         return instance;
     }
