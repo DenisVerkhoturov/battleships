@@ -1,7 +1,7 @@
 package controllers.menu;
 
 import framework.ScreenController;
-import framework.ScreensManager;
+import framework.ScreenManager;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
@@ -22,7 +22,7 @@ public class Settings extends ScreenController implements Initializable
 
     private ResourceBundle resourceBundle;
 
-    ScreensManager controller;
+    ScreenManager controller;
 
     @Override
     public void initialize(URL location, ResourceBundle resources)
@@ -36,5 +36,17 @@ public class Settings extends ScreenController implements Initializable
         );
 
         this.userNameTextField.textProperty().bindBidirectional(configurations.Settings.getInstance().getUserName());
+    }
+
+    @Override
+    public void onShow()
+    {
+        System.out.println("Screen settings shown");
+    }
+
+    @Override
+    public void onHide()
+    {
+        System.out.println("Screen settings hidden");
     }
 }

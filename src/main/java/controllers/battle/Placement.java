@@ -29,4 +29,16 @@ public class Placement extends ScreenController implements Initializable
 	{
         this.ctx.strokeRect(10, 10, 50, 50);
 	}
+
+	@Override
+	public void onShow()
+	{
+		System.out.println("Screen placement shown");
+	}
+
+	@Override
+	public void onHide()
+	{
+		System.out.println("Screen placement hidden");
+	}
 }

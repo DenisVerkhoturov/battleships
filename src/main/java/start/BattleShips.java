@@ -3,7 +3,7 @@ package start;
 import javafx.fxml.FXMLLoader;
 import configurations.Settings;
 import framework.Screen;
-import framework.ScreensManager;
+import framework.ScreenManager;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -29,7 +29,7 @@ public class BattleShips extends Application
 	private final Screen battle = loadScreen("battle", getClass().getResource(FXML_DIR + "/menu/battle.fxml"));
 	private final Screen resume = loadScreen("resume", getClass().getResource(FXML_DIR + "/battle/battle.fxml"));
 
-	private final ScreensManager screensManager;
+	private final ScreenManager screenManager;
 
 	public BattleShips()
 	{
@@ -45,13 +45,13 @@ public class BattleShips extends Application
 		screens.add(battle);
 		screens.add(resume);
 
-		screensManager = new ScreensManager(screens);
+		screenManager = new ScreenManager(null/*screens*/);
 	}
 
 	@Override
 	public void start(Stage stage) throws Exception
 	{
-		ScreensManager root = screensManager;
+		ScreenManager root = screenManager;
 		root.setScreen(main);
 
 		Scene scene = new Scene(root);
