@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<?import java.net.URL?>
+<AnchorPane prefHeight="400.0"
+            prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/8.0.65"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controllers.menu.Main">
+
+    <stylesheets>
+        <URL value="@../../styles/stylesheet.css"/>
+    </stylesheets>
+
+    <ImageView layoutX="121.0"
+               layoutY="77.0"
+               pickOnBounds="true"
+               preserveRatio="true"
+               AnchorPane.topAnchor="0.0"
+               AnchorPane.rightAnchor="0.0"
+               AnchorPane.bottomAnchor="0.0"
+               AnchorPane.leftAnchor="0.0">
+
+        <viewport>
+            <Rectangle2D/>
+        </viewport>
+        <Image url="@../../images/main.jpg"/>
+    </ImageView>
+</AnchorPane>
