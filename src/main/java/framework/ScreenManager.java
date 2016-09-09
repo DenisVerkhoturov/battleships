@@ -30,29 +30,81 @@ public class ScreenManager extends AnchorPane
 		this.screenSet = screenSet;
 	}
 
+	public void setScreen(@NotNull Screen newScreen)
+	{
+		if (!this.getChildren().isEmpty() && currentScreen != null) {
+			currentScreen.getController().onHide();
+			clearConstraints(currentScreen.getNode());
+			this.getChildren().clear();
+		}
+		this.currentScreen = newScreen;
+		this.getChildren().add(newScreen.getNode());
+		setTopAnchor(newScreen.getNode(), 0.0);
+		setRightAnchor(newScreen.getNode(), 0.0);
+		setBottomAnchor(newScreen.getNode(), 0.0);
+		setLeftAnchor(newScreen.getNode(), 0.0);
+		newScreen.getController().onShow();
+
+		if (newScreen.getUpper() != null) {
+			this.upBtn = new Button(newScreen.getUpper().getName());
+			this.getChildren().add(this.upBtn);
+			setTopAnchor(this.upBtn, 0.0);
+			setLeftAnchor(this.upBtn, 50.0);
+			setRightAnchor(this.upBtn, 50.0);
+			this.upBtn.setOnMouseClicked(event -> this.slideUp());
+		}
+
+		if (newScreen.getRight() != null) {
+			this.rightBtn = new Button(newScreen.getRight().getName());
+			this.getChildren().add(this.rightBtn);
+			setRightAnchor(this.rightBtn, 0.0);
+			setTopAnchor(this.rightBtn, 50.0);
+			setBottomAnchor(this.rightBtn, 50.0);
+			this.rightBtn.setOnMouseClicked(event -> this.slideRight());
+		}
+
+		if (newScreen.getLower() != null) {
+			this.downBtn = new Button(newScreen.getLower().getName());
+			this.getChildren().add(this.downBtn);
+			setBottomAnchor(this.downBtn, 0.0);
+			setLeftAnchor(this.downBtn, 50.0);
+			setRightAnchor(this.downBtn, 50.0);
+			this.downBtn.setOnMouseClicked(event -> this.slideDown());
+		}
+
+		if (newScreen.getLeft() != null) {
+			this.leftBtn = new Button(newScreen.getLeft().getName());
+			this.getChildren().add(this.leftBtn);
+			setLeftAnchor(this.leftBtn, 0.0);
+			setTopAnchor(this.leftBtn, 50.0);
+			setBottomAnchor(this.leftBtn, 50.0);
+			this.leftBtn.setOnMouseClicked(event -> this.slideLeft());
+		}
+	}
+
 	private void slideUp()
 	{
+		Screen oldScreen = currentScreen;
 		Screen newScreen = currentScreen.getUpper();
 		new Timeline(
 				new KeyFrame(
 						Duration.millis(500),
 						event -> {
-							this.setScreen(currentScreen);
+							this.setScreen(newScreen);
 							newScreen.getNode().translateYProperty().set(-this.getHeight());
-							System.out.println(newScreen.getNode().translateYProperty().get());
 							new Timeline(
 									new KeyFrame(Duration.millis(500), new KeyValue(newScreen.getNode().translateYProperty(), 0.0))
 							).play();
 						},
-						new KeyValue(currentScreen.getNode().translateYProperty(), currentScreen.getNode().getTranslateY() + this.getHeight())
+						new KeyValue(oldScreen.getNode().translateYProperty(), oldScreen.getNode().getTranslateY() + this.getHeight())
 				)
 		).play();
 	}
 
 	private void slideRight()
 	{
-		Screen newScreen = currentScreen.getUpper();
-
+		Screen oldScreen = currentScreen;
+		Screen newScreen = currentScreen.getRight();
 		new Timeline(
 				new KeyFrame(
 						Duration.millis(500),
@@ -63,14 +115,15 @@ public class ScreenManager extends AnchorPane
 									new KeyFrame(Duration.millis(500), new KeyValue(newScreen.getNode().translateXProperty(), 0.0))
 							).play();
 						},
-						new KeyValue(currentScreen.getNode().translateXProperty(), currentScreen.getNode().getTranslateX() - this.getHeight())
+						new KeyValue(oldScreen.getNode().translateXProperty(), oldScreen.getNode().getTranslateX() - this.getHeight())
 				)
 		).play();
 	}
 
 	private void slideDown()
 	{
-		Screen newScreen = currentScreen.getUpper();
+		Screen oldScreen = currentScreen;
+		Screen newScreen = currentScreen.getLower();
 		new Timeline(
 				new KeyFrame(
 						Duration.millis(500),
@@ -81,14 +134,15 @@ public class ScreenManager extends AnchorPane
 									new KeyFrame(Duration.millis(500), new KeyValue(newScreen.getNode().translateYProperty(), 0.0))
 							).play();
 						},
-						new KeyValue(currentScreen.getNode().translateYProperty(), currentScreen.getNode().getTranslateY() - this.getHeight())
+						new KeyValue(oldScreen.getNode().translateYProperty(), oldScreen.getNode().getTranslateY() - this.getHeight())
 				)
 		).play();
 	}
 
 	private void slideLeft()
 	{
-		Screen newScreen = currentScreen.getUpper();
+		Screen oldScreen = currentScreen;
+		Screen newScreen = currentScreen.getLeft();
 		new Timeline(
 				new KeyFrame(
 						Duration.millis(500),
@@ -99,24 +153,8 @@ public class ScreenManager extends AnchorPane
 									new KeyFrame(Duration.millis(500), new KeyValue(newScreen.getNode().translateXProperty(), 0.0))
 							).play();
 						},
-						new KeyValue(currentScreen.getNode().translateXProperty(), currentScreen.getNode().getTranslateX() + this.getHeight())
+						new KeyValue(oldScreen.getNode().translateXProperty(), oldScreen.getNode().getTranslateX() + this.getHeight())
 				)
 		).play();
-	}
-
-	public void setScreen(@NotNull Screen newScreen)
-	{
-		if (!this.getChildren().isEmpty() && currentScreen != null) {
-			currentScreen.getController().onHide();
-			clearConstraints(currentScreen.getNode());
-			this.getChildren().remove(currentScreen.getNode());
-		}
-
-		this.getChildren().add(0, newScreen.getNode());
-		setTopAnchor(newScreen.getNode(), 0.0);
-		setRightAnchor(newScreen.getNode(), this.getWidth());
-		setBottomAnchor(newScreen.getNode(), this.getHeight());
-		setLeftAnchor(newScreen.getNode(), 0.0);
-		newScreen.getController().onShow();
 	}
 }

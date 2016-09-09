@@ -45,7 +45,7 @@ public class BattleShips extends Application
 		screens.add(battle);
 		screens.add(resume);
 
-		screenManager = new ScreenManager(null/*screens*/);
+		screenManager = new ScreenManager(screens);
 	}
 
 	@Override
