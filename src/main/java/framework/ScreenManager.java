@@ -1,6 +1,5 @@
 package framework;
 
-import com.sun.istack.internal.NotNull;
 import exceptions.ScreenNotFoundException;
 import javafx.animation.*;
 import javafx.scene.Node;
@@ -24,13 +23,13 @@ public class ScreenManager extends AnchorPane
 	private final Set<Screen> screenSet;
 	private Screen currentScreen;
 
-	public ScreenManager(@NotNull final Set<Screen> screenSet)
+	public ScreenManager(final Set<Screen> screenSet)
 	{
 		super();
 		this.screenSet = screenSet;
 	}
 
-	public void setScreen(@NotNull Screen newScreen)
+	public void setScreen(Screen newScreen)
 	{
 		if (!this.getChildren().isEmpty() && currentScreen != null) {
 			currentScreen.getController().onHide();

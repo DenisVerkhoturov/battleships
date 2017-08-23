@@ -1,0 +1,9 @@
+apply plugin: "java"
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile group: "io.vavr", name: "vavr", version: "$vavrVersion"
+}
